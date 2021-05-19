@@ -1,6 +1,9 @@
 <h1>List of Flats</h1>
 
 <% @flats.each do |flat| %>
-<h3><%= flat.name %></h3>
+<h3><%= link_to flat.name, flat_path(flat) %></h3>
+<%= link_to 'Delete flat', flat_path(flat), method: :delete, data: { confirm: "Are you sure?" } %>
 <p><%= flat.address %></p>
 <% end %>
+
+<%= link_to 'Add new flat', new_flat_path %>
